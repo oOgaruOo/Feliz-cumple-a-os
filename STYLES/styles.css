@@ -1,0 +1,638 @@
+/* ===== RESET Y BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 20px 80px 20px;
+    z-index: 2;
+    flex: 1;
+}
+
+/* ===== TARJETA PRINCIPAL CON FOTO DE FONDO ===== */
+.card {
+    position: relative;
+    border-radius: 30px;
+    padding: 0;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 1s ease-out;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* FOTO DE FONDO DE LA TARJETA PRINCIPAL */
+.card-foto-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../ASSETS/AMOR.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.7) blur(1px);
+    transform: scale(1.05);
+    transition: transform 1s ease, filter 1s ease;
+    animation: fondoZoom 12s ease-in-out infinite alternate;
+}
+
+/* ANIMACIÓN DE ZOOM EN LA FOTO DE FONDO */
+@keyframes fondoZoom {
+    0% {
+        transform: scale(1.05);
+        filter: brightness(0.7) blur(1px);
+    }
+    50% {
+        transform: scale(1.12);
+        filter: brightness(0.75) blur(0.5px);
+    }
+    100% {
+        transform: scale(1.05);
+        filter: brightness(0.7) blur(1px);
+    }
+}
+
+/* CAPA OSCURA SOBRE LA FOTO PARA LEGIBILIDAD */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* CONTENIDO DE LA TARJETA (POR ENCIMA DE LA FOTO) */
+.card-contenido {
+    position: relative;
+    z-index: 2;
+    padding: 35px 45px 30px 45px;
+    background: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(2px);
+}
+
+/* BORDE DECORATIVO CON DEGRADADO */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe, #ffd93d);
+    background-size: 400% 400%;
+    border-radius: 32px;
+    z-index: -1;
+    animation: bordeGradiente 6s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+@keyframes bordeGradiente {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===== TÍTULO ===== */
+.titulo-principal {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ffd93d, #ff6b6b, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    animation: titlePulse 2s ease-in-out infinite;
+    text-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+/* ===== NOMBRE DESTACADO ===== */
+.nombre-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 8px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.nombre-destacado {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow: 3px 3px 0 #ffd93d, 6px 6px 0 rgba(255, 107, 107, 0.2);
+    padding: 6px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    animation: nombreGlow 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes nombreGlow {
+    0%, 100% { text-shadow: 3px 3px 0 #ffd93d, 6px 6px 0 rgba(255, 107, 107, 0.2); }
+    50% { text-shadow: 3px 3px 0 #ff6b6b, 6px 6px 0 rgba(255, 217, 61, 0.3); }
+}
+
+.corazon-latido {
+    font-size: 2.6rem;
+    animation: latido 1.2s ease-in-out infinite;
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.2); }
+    70% { transform: scale(1); }
+}
+
+.corazon-flotante {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    animation: flotar 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* ===== MENSAJE PERSONALIZADO ===== */
+.mensaje-personalizado {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 12px 0;
+    padding: 12px 18px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border-left: 4px solid #ffd93d;
+    border-right: 4px solid #ff6b6b;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+    line-height: 1.6;
+    min-height: 48px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== CONTADOR DE AÑOS CON FOTO ENFOCADA EN LOS OJOS ===== */
+.contador-anos {
+    position: relative;
+    text-align: center;
+    margin: 18px 0;
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-height: 140px;
+    z-index: 1;
+}
+
+/* FOTO ENFOCADA EN LOS OJOS - USANDO background-position PARA CENTRAR EN LA ZONA DE LOS OJOS */
+.contador-foto-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../ASSETS/OJITOS.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    filter: brightness(0.65) blur(1px);
+    transform: scale(1);
+    transition: transform 1.5s ease, filter 1.5s ease;
+    animation: zoomOjos 8s ease-in-out infinite alternate;
+}
+
+/* ANIMACIÓN DE ZOOM EN LOS OJOS */
+@keyframes zoomOjos {
+    0% {
+        transform: scale(1.2);
+        background-position: center 25%;
+        filter: brightness(0.65) blur(1px);
+    }
+    25% {
+        transform: scale(1.1);
+        background-position: center 30%;
+        filter: brightness(0.7) blur(0.8px);
+    }
+    50% {
+        transform: scale(1.3);
+        background-position: center 28%;
+        filter: brightness(0.6) blur(1.2px);
+    }
+    75% {
+        transform: scale(1.15);
+        background-position: center 32%;
+        filter: brightness(0.75) blur(0.5px);
+    }
+    100% {
+        transform: scale(1.25);
+        background-position: center 27%;
+        filter: brightness(0.65) blur(1px);
+    }
+}
+
+/* Capa de color sobre la foto del contador */
+.contador-foto-fondo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(253, 203, 110, 0.15));
+    pointer-events: none;
+}
+
+.contador-anos:hover .contador-foto-fondo {
+    animation-play-state: paused;
+}
+
+.contador-contenido {
+    position: relative;
+    z-index: 2;
+    padding: 25px 20px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTADOR ANIMADO */
+.contador-animado {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.numero-anos {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.5), 0 0 60px rgba(255, 107, 107, 0.3);
+    display: block;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 30px rgba(255, 107, 107, 0.5), 0 0 60px rgba(255, 107, 107, 0.3); }
+    50% { text-shadow: 0 0 50px rgba(255, 217, 61, 0.6), 0 0 80px rgba(255, 107, 107, 0.4); }
+}
+
+/* BARRAS ANIMADAS DEL CONTADOR */
+.contador-barras {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra {
+    display: inline-block;
+    width: 6px;
+    height: 25px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #ffd93d, #ff6b6b);
+    animation: barraCarga 1.5s ease-in-out infinite;
+}
+
+.barra-1 { animation-delay: 0s; }
+.barra-2 { animation-delay: 0.2s; }
+.barra-3 { animation-delay: 0.4s; }
+.barra-4 { animation-delay: 0.6s; }
+.barra-5 { animation-delay: 0.8s; }
+
+@keyframes barraCarga {
+    0%, 100% { height: 10px; opacity: 0.5; }
+    50% { height: 30px; opacity: 1; }
+}
+
+.texto-anos {
+    font-size: 1.1rem;
+    color: #ffd93d;
+    font-weight: 600;
+    margin-top: 5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contador-corazones {
+    font-size: 1.3rem;
+    margin-top: 5px;
+    animation: latido 1.5s ease-in-out infinite;
+    display: inline-block;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== BOTONES ===== */
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-principal,
+.btn-secundario {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.btn-principal {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.5);
+}
+
+.btn-secundario {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.btn-secundario:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.5);
+}
+
+/* ===== MENSAJE FLOTANTE MÓVIL ===== */
+.mensaje-flotante-movil {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    color: #ffd93d;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    z-index: 100;
+    border: 1px solid rgba(255, 217, 61, 0.3);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    animation: mensajeMovil 12s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes mensajeMovil {
+    0% { left: -100%; top: 10%; transform: translateY(-50%); opacity: 0; }
+    5% { opacity: 1; }
+    45% { top: 10%; opacity: 1; }
+    50% { opacity: 1; top: 10%; }
+    90% { opacity: 1; }
+    95% { opacity: 0; }
+    100% { left: 110%; top: 10%; transform: translateY(-50%); opacity: 0; }
+}
+
+/* ===== CANVAS CONFETI ===== */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-contenido {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: modalSlideIn 0.5s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.modal-cerrar:hover {
+    color: #ff6b6b;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.mensaje-modal {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2d3436;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin: 20px 0;
+    min-height: 100px;
+    font-style: italic;
+}
+
+.corazones-modal {
+    font-size: 2rem;
+    animation: latido 1.5s ease-in-out infinite;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    z-index: 50;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    animation: footerSlideUp 1s ease-out;
+}
+
+@keyframes footerSlideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.footer-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-texto {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-corazones {
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+    animation: latido 1.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+.footer-fecha {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+    margin-top: 3px;
+    font-weight: 300;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .card-contenido { padding: 25px 20px 25px 20px; }
+    .titulo-principal { font-size: 2.5rem; }
+    .nombre-destacado { font-size: 2.2rem; padding: 8px 20px; }
+    .nombre-container { flex-direction: column; gap: 10px; }
+    .corazon-latido { font-size: 2.5rem; }
+    .contador-anos { min-height: 120px; }
+    .contador-contenido { min-height: 120px; padding: 20px 15px; }
+    .numero-anos { font-size: 3rem; }
+    .texto-anos { font-size: 1rem; }
+    .btn-principal, .btn-secundario { font-size: 1rem; padding: 12px 20px; }
+    .mensaje-flotante-movil { font-size: 1rem; padding: 10px 20px; white-space: nowrap; }
+    .modal-contenido { padding: 25px; margin: 20px; }
+    .modal-body h2 { font-size: 2rem; }
+    .mensaje-modal { font-size: 1rem; padding: 15px; }
+    .footer-texto { font-size: 0.85rem; }
+    .footer-corazones { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+    .card-contenido { padding: 18px 12px 20px 12px; }
+    .titulo-principal { font-size: 2rem; }
+    .nombre-destacado { font-size: 1.8rem; padding: 6px 15px; }
+    .botones-container { gap: 10px; }
+    .corazon-flotante { font-size: 1.5rem; top: 10px; right: 10px; }
+    .contador-anos { min-height: 100px; }
+    .contador-contenido { min-height: 100px; padding: 15px 10px; }
+    .numero-anos { font-size: 2.5rem; }
+    .texto-anos { font-size: 0.9rem; }
+    .mensaje-flotante-movil { font-size: 0.85rem; padding: 8px 15px; }
+    .footer-texto { font-size: 0.75rem; }
+    .footer-corazones { font-size: 1rem; }
+    .contador-barras .barra { width: 4px; height: 20px; }
+}

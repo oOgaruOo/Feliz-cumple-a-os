@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Feliz Cumpleaños Mi Amor ❤️</title>
+    <link rel="stylesheet" href="STYLES/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <div class="card" id="cardPrincipal">
+            <!-- FONDO DE LA TARJETA CON LA FOTO DE ELLA -->
+            <div class="card-foto-fondo"></div>
+            
+            <!-- CAPA OSCURA PARA LEGIBILIDAD -->
+            <div class="card-overlay"></div>
+            
+            <!-- CONTENIDO DE LA TARJETA -->
+            <div class="card-contenido">
+                <div class="corazon-flotante">❤️</div>
+                
+                <h1 class="titulo-principal">
+                    🎂 ¡Feliz Cumpleaños! 🎉
+                </h1>
+                
+                <div class="nombre-container">
+                    <div class="nombre-destacado" id="displayNombre">
+                        Mi Amor ❤️
+                    </div>
+                    <div class="corazon-latido" id="corazonAnimado">💖</div>
+                </div>
+                
+                <div class="mensaje-personalizado" id="mensajePersonal">
+                    Eres la persona más especial en mi vida ❤️
+                </div>
+                
+                <!-- CONTADOR DE AÑOS CON FOTO ENFOCADA EN LOS OJOS -->
+                <div class="contador-anos" id="contadorAnos">
+                    <div class="contador-foto-fondo" id="fotoFondo"></div>
+                    <div class="contador-contenido">
+                        <div class="contador-animado">
+                            <span class="numero-anos" id="numeroAnos">🎈 33 🎈</span>
+                            <div class="contador-barras">
+                                <span class="barra barra-1"></span>
+                                <span class="barra barra-2"></span>
+                                <span class="barra barra-3"></span>
+                                <span class="barra barra-4"></span>
+                                <span class="barra barra-5"></span>
+                            </div>
+                        </div>
+                        <span class="texto-anos">años de pura magia ✨</span>
+                        <div class="contador-corazones">💖 💕 💗</div>
+                    </div>
+                </div>
+                
+                <div class="botones-container">
+                    <button class="btn-principal" id="btnConfeti">
+                        🎊 Lanzar Confeti 🎊
+                    </button>
+                    <button class="btn-secundario" id="btnMensajes">
+                        💌 Mensaje Especial
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mensaje flotante móvil -->
+            <div class="mensaje-flotante-movil" id="mensajeFlotanteMovil">
+                💕 ¡Bienvenida, amor! 💕
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas para confeti -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Modal de mensaje especial -->
+    <div class="modal-overlay" id="modalMensaje">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" id="cerrarModal">✖</button>
+            <div class="modal-body">
+                <h2>💌 Para ti, mi amor</h2>
+                <div class="mensaje-modal" id="mensajeModal"></div>
+                <div class="corazones-modal">❤️❤️❤️</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <p class="footer-texto">
+                ❤️ Hecho con todo el amor del mundo para la persona más especial ❤️
+            </p>
+            <div class="footer-corazones">💖 💕 💗 💝 💘</div>
+            <p class="footer-fecha" id="footerFecha"></p>
+        </div>
+    </footer>
+
+    <script src="JS/app.js"></script>
+</body>
+</html>
