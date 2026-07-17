@@ -1,2 +1,2 @@
 # Feliz-cumple-a-os
-este pequeño sistema es para dar un feliz cumple años a las personas mas queridas o estimados. 
+Un sistema de felicitaciones de cumpleaños es una aplicación sencilla diseñada para crear y enviar mensajes personalizados que celebran el día de alguien muy querido. Su propósito es transmitir cariño y hacer sentir especial a la persona homenajeada.
